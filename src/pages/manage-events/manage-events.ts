@@ -37,6 +37,7 @@ export class ManageEventsPage {
 
   removeEventFromDB(event_id) {
     this.GrabNpEventsProvider.deleteEvent(event_id);
+    debugger;
     console.log(event_id);
   }
 }

@@ -41,17 +41,7 @@ export class ProPubServiceProvider {
           // and save the data for later reference
           this.data = data;
           this.data = data.organizations;
-          resolve(this.data)
-        //   this.data.http.get(`/propublicORG/${this.ein}.json`)
-        // .map(res => res.json())
-        // .subscribe(data => {
-          
-        //   // we've got back the raw data, now generate the core schedule data
-        //   // and save the data for later reference
-        //   this.data = data;
-        //   this.data = data.organization;
-        //   resolve(this.data);
-        // });
+          resolve(this.data);
         })
     });
   }
