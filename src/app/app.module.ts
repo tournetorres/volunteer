@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { Platform, MenuController, Nav } from 'ionic-angular';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
@@ -58,6 +59,7 @@ import { NpCalProvider } from '../providers/np-cal/np-cal';
     ManageEventsPage
   ],
   providers: [
+    Platform,
     StatusBar,
     SplashScreen,
     Geolocation,
