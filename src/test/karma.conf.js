@@ -1,4 +1,4 @@
- // Karma configuration file, see link for more information
+// Karma configuration file, see link for more information
 // https://karma-runner.github.io/0.13/config/configuration-file.html
 
 module.exports = function (config) {
@@ -32,13 +32,34 @@ module.exports = function (config) {
       environment: 'dev',
     },
     reporters: config.angularCli && config.angularCli.codeCoverage
-              ? ['progress', 'coverage-istanbul']
-              : ['progress', 'kjhtml'],
+      ? ['progress', 'coverage-istanbul']
+      : ['progress', 'kjhtml'],
+
+    customLaunchers: {
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox'],
+      },
+
+    },
+
+    //   if(process.env.TRAVIS) {
+    //   configuration.browsers = ['Chrome_travis_ci'];
+    // },
+
+    browserNoActivityTimeout: 60000,
+    browsers: ['Chrome'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
     singleRun: false,
   });
+
+  if (process.env.TRAVIS) {
+    config.browsers = ['Chrome_travis_ci'];
+  }
+
+  config.set(config);
 };
+
